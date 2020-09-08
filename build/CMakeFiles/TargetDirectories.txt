@@ -1,7 +1,0 @@
-/home/stepan/repositories/tcam-stereo-capture-updated-rgb/build/CMakeFiles/install.dir
-/home/stepan/repositories/tcam-stereo-capture-updated-rgb/build/CMakeFiles/list_install_components.dir
-/home/stepan/repositories/tcam-stereo-capture-updated-rgb/build/CMakeFiles/rebuild_cache.dir
-/home/stepan/repositories/tcam-stereo-capture-updated-rgb/build/CMakeFiles/tcamstereocapture.dir
-/home/stepan/repositories/tcam-stereo-capture-updated-rgb/build/CMakeFiles/edit_cache.dir
-/home/stepan/repositories/tcam-stereo-capture-updated-rgb/build/CMakeFiles/install/strip.dir
-/home/stepan/repositories/tcam-stereo-capture-updated-rgb/build/CMakeFiles/install/local.dir
