@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="tcam-stereo-capture">Tcam Stereo Capture</h1>
+<p>This sample shows how to capture and save images from two cameras. The cameras are synchronized by software trigger,</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>The sample uses the the examples/cpp/common/tcamcamera.cpp and .h files of the <em>tiscamera</em> repository as wrapper around the
+<a href="https://gstreamer.freedesktop.org/">GStreamer</a> code and property handling. Adapt the CMakeList.txt accordingly.
+Image saving is done using OpenCV. The GSTBuffer is copied to an <a href="https://docs.opencv.org/3.1.0/d3/d63/classcv_1_1Mat.html">cv::Mat</a></p>
+<p>In &quot;main.cpp&quot; search the line which contents</p>
+<pre class="hljs"><code><div><span class="hljs-function">TcamCamera <span class="hljs-title">cam1</span><span class="hljs-params">(<span class="hljs-string">"00001234"</span>)</span></span>;
+<span class="hljs-function">TcamCamera <span class="hljs-title">cam2</span><span class="hljs-params">(<span class="hljs-string">"00001234"</span>)</span></span>;
+</div></code></pre>
+<p>and exchange &quot;00001234&quot; by the serial numbers of your cameras. The following documentation is mainly for one camera, the very same we do with cam1 we must do with cam2 too.</p>
+<h2 id="building">Building</h2>
+<p>In order to build the sample, open a terminal, enter the sample's directory. Then enter</p>
+<pre class="hljs"><code><div>mkdir build
+<span class="hljs-built_in">cd</span> build 
+cmake ..
+make
+./tcamstereocapture
+</div></code></pre>
+<h2 id="the-camera-object">The Camera Object</h2>
+<p>The tiscamera repository provides the TcamCamera class, which wraps all the GStreamer code. Since there are two cameras to be handled, two instances of this class are needed:</p>
+<pre class="hljs"><code><div><span class="hljs-function">TcamCamera <span class="hljs-title">cam1</span><span class="hljs-params">(<span class="hljs-string">"00001234"</span>)</span></span>;
+<span class="hljs-function">TcamCamera <span class="hljs-title">cam2</span><span class="hljs-params">(<span class="hljs-string">"00005678"</span>)</span></span>;
+</div></code></pre>
+<h2 id="using-the-softwaretrigger">Using the Softwaretrigger</h2>
+<p>For the software trigger, two properties are needed. The &quot;Trigger Mode&quot;, which is used to enable or disabe the trigger mode in the camera and the &quot;Softwaretrigger&quot; property.</p>
+<h3 id="getting-the-trigger-mode-property">Getting the Trigger Mode Property</h3>
+<p>First of al the declaration.</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;Property&gt; TriggerMode;
+</div></code></pre>
+<p>Not all camera models support trigger mode. The the camera does not support trigger mode, the TcamCamera object will throw an exception. Therefore, the property is queried in a try..catch block:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">try</span>
+{
+    TriggerMode = cam1.get_property(<span class="hljs-string">"Trigger Mode"</span>);
+}
+<span class="hljs-keyword">catch</span>(...)
+{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Your camera does not support triggering.\n"</span>);
+}
+</div></code></pre>
+<p>The trigger mode is set with different parameters for USB and GigE cameras (unfortunally). The TriggerMode property must be querried only once, because the TcamCamera object is passed to the set and get functions.</p>
+<p>Use the string parameters &quot;On&quot; and &quot;Off for GigE cameras:</p>
+<pre class="hljs"><code><div>TriggerMode-&gt;<span class="hljs-built_in">set</span>(cam1,<span class="hljs-string">"On"</span>); <span class="hljs-comment">// Use this line for GigE cameras</span>
+</div></code></pre>
+<p>Use the interger parameter 1 and 0 for USB cameras.</p>
+<pre class="hljs"><code><div>TriggerMode-&gt;<span class="hljs-built_in">set</span>(cam1,<span class="hljs-number">1</span>); <span class="hljs-comment">// Use this line for USB cameras</span>
+</div></code></pre>
+<p>If is is not sure what to use, then the <code>ListProperties(cam);</code> function shows, which is correct for the currently used camera.</p>
+<h3 id="getting-the-software-trigger-property">Getting the Software Trigger Property</h3>
+<p>The same method as shown at Trigger Mode is used for the software trigger:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;Property&gt; Softwaretrigger;
+<span class="hljs-keyword">try</span>
+{
+    Softwaretrigger = cam1.get_property(<span class="hljs-string">"Software Trigger"</span>);
+}
+<span class="hljs-keyword">catch</span>(...)
+{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Your camera does not support software triggering.\n"</span>);
+}
+</div></code></pre>
+<p><strong>Attention</strong>: The &quot;Software Trigger&quot; property name can be different on USB and GigE camera. The <code>ListProperties(cam);</code> is here helpful again for listing available properties.</p>
+<p>The SoftwareTrigger property must be querried only once, because the TcamCamera object is passed to the set and get functions.</p>
+<p>The software trigger is a so called push property. That means it is pushed like a button. Therefore there is an integer value set to release the trigger pulse. So the following line releases the trigger and the camera is mentioned to sent one image:</p>
+<pre class="hljs"><code><div>Softwaretrigger-&gt;<span class="hljs-built_in">set</span>(cam1,<span class="hljs-number">1</span>);
+</div></code></pre>
+<h2 id="the-callback">The Callback</h2>
+<p>It always is recommened to use a callback, if a camera runs triggered. The callback's function is declared as follows:</p>
+<pre class="hljs"><code><div><span class="hljs-function">GstFlowReturn <span class="hljs-title">new_frame_cb</span><span class="hljs-params">(GstAppSink *appsink, gpointer data)</span>
+</span></div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>appsink</td>
+<td>The Tcamcamera class uses an <a href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/gst-plugins-base-libs-appsink.html">appsink</a> as callback handerl. Its pointer is passed to the callback function.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>This is a pointer to user data.</td>
+</tr>
+</tbody>
+</table>
+<p>The function must be passed to the Tcamcamera object:</p>
+<pre class="hljs"><code><div>cam.set_new_frame_callback(new_frame_cb, null);
+</div></code></pre>
+<p>If user data is used, then its pointer is passed, e.g:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span> Counter = <span class="hljs-number">0</span>
+cam.set_new_frame_callback(new_frame_cb, &amp;Counter);
+</div></code></pre>
+<p>The sample uses a struct named &quot;CUSTOMDATA&quot;.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>
+{</span>
+    <span class="hljs-keyword">int</span> ImageCounter;       <span class="hljs-comment">// Counter used for filename generation</span>
+    <span class="hljs-keyword">bool</span> ReceivedAnImage;   <span class="hljs-comment">// indicates a new image handled</span>
+    <span class="hljs-keyword">bool</span> busy;              <span class="hljs-comment">// indicates the callback being busy</span>
+    <span class="hljs-keyword">char</span> imageprefix[<span class="hljs-number">55</span>];   <span class="hljs-comment">// Prefix for the image file names.</span>
+    cv::Mat frame;          <span class="hljs-comment">// OpenCV Mat used for image saving.</span>
+} CUSTOMDATA;
+</div></code></pre>
+<p>The CUSTOMDATA struct will be instantiate for each camera:</p>
+<pre class="hljs"><code><div>CUSTOMDATA CustomData1;  <span class="hljs-comment">// Customdata for camera 1</span>
+CUSTOMDATA CustomData2;  <span class="hljs-comment">// Customdata for camera 2</span>
+</div></code></pre>
+<p>It is passed to the callback for each camera as follows:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// Register a callback to be called for each new frame</span>
+cam1.set_new_frame_callback(new_frame_cb, &amp;CustomData1);
+cam2.set_new_frame_callback(new_frame_cb, &amp;CustomData2);
+</div></code></pre>
+<p>The complete callback function is as follows.</p>
+<pre class="hljs"><code><div><span class="hljs-comment">////////////////////////////////////////////////////////////////////</span>
+<span class="hljs-comment">// Callback called for new images by the internal appsink</span>
+<span class="hljs-function">GstFlowReturn <span class="hljs-title">new_frame_cb</span><span class="hljs-params">(GstAppSink *appsink, gpointer data)</span>
+</span>{
+    <span class="hljs-keyword">int</span> width, height ;
+    <span class="hljs-keyword">const</span> GstStructure *str;
+
+    <span class="hljs-comment">// Cast gpointer to CUSTOMDATA*</span>
+    CUSTOMDATA *pCustomData = (CUSTOMDATA*)data;
+
+    <span class="hljs-keyword">if</span>( pCustomData-&gt;busy) <span class="hljs-comment">// Return, if will are busy. Will result in frame drops</span>
+       <span class="hljs-keyword">return</span> GST_FLOW_OK;
+
+    pCustomData-&gt;busy = <span class="hljs-literal">true</span>;
+
+    <span class="hljs-comment">// The following lines demonstrate, how to acces the image</span>
+    <span class="hljs-comment">// data in the GstSample.</span>
+    GstSample *sample = gst_app_sink_pull_sample(appsink);
+    GstCaps *caps = gst_sample_get_caps(sample);
+
+    str = gst_caps_get_structure (caps, <span class="hljs-number">0</span>);    
+
+    <span class="hljs-keyword">if</span>( <span class="hljs-built_in">strcmp</span>( gst_structure_get_string (str, <span class="hljs-string">"format"</span>),<span class="hljs-string">"BGRx"</span>) == <span class="hljs-number">0</span>)  
+    {
+        gst_structure_get_int (str, <span class="hljs-string">"width"</span>, &amp;width);
+        gst_structure_get_int (str, <span class="hljs-string">"height"</span>, &amp;height);
+
+        <span class="hljs-comment">// Get the image data</span>
+        GstMapInfo info;
+        GstBuffer *buffer = gst_sample_get_buffer(sample);
+        gst_buffer_map(buffer, &amp;info, GST_MAP_READ);
+        <span class="hljs-keyword">if</span> (info.data != <span class="hljs-literal">NULL</span>) 
+        {
+            <span class="hljs-comment">// Create the cv::Mat</span>
+            pCustomData-&gt;frame.create(height,width,CV_8UC(<span class="hljs-number">4</span>));
+            <span class="hljs-comment">// Copy the image data from GstBuffer intot the cv::Mat</span>
+            <span class="hljs-built_in">memcpy</span>( pCustomData-&gt;frame.data, info.data, width*height*<span class="hljs-number">4</span>);
+            <span class="hljs-comment">// Set the flag for received and handled an image.</span>
+            pCustomData-&gt;ReceivedAnImage = <span class="hljs-literal">true</span>;
+        }
+        gst_buffer_unmap (buffer, &amp;info);
+    }    
+    <span class="hljs-comment">// Calling Unref is important!</span>
+    gst_sample_unref(sample);
+
+    <span class="hljs-comment">// Set our flag of new image to true, so our main thread knows about a new image.</span>
+    pCustomData-&gt;busy = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">return</span> GST_FLOW_OK;
+}
+</div></code></pre>
+<p>First of all, the image sample must be pulled from the appsink. It is needed to access its properties like pixel format, width and height and also the image data.</p>
+<pre class="hljs"><code><div>    GstSample *sample = gst_app_sink_pull_sample(appsink);
+</div></code></pre>
+<p>The caps structure provides the image properties like pixel format, width and height from the sample. They are converted into a string, which is interpreted by <a href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html/GstStructure.html#gst-structure-get-string">gst_structure_get_string</a> and <a href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html/GstStructure.html#gst-structure-get-int">gst_structure_get_int</a>.</p>
+<pre class="hljs"><code><div>GstCaps *caps = gst_sample_get_caps(sample);
+str = gst_caps_get_structure (caps, <span class="hljs-number">0</span>);  
+
+<span class="hljs-keyword">if</span>( <span class="hljs-built_in">strcmp</span>( gst_structure_get_string (str, <span class="hljs-string">"format"</span>),<span class="hljs-string">"BGRx"</span>) == <span class="hljs-number">0</span>) 
+{
+    gst_structure_get_int (str, <span class="hljs-string">"width"</span>, &amp;width);
+    gst_structure_get_int (str, <span class="hljs-string">"height"</span>, &amp;height);
+</div></code></pre>
+<p>Only if the pixel format is BGRx, the images shall be saved. Then width and height are queried.</p>
+<p>The image data iteself is in the <a href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html/GstBuffer.html">GstBuffer</a> object, which is querried from the sample. That must be mapped to a <a href="https://developer.gnome.org/gstreamer/stable/gstreamer-GstMemory.html#GstMapInfo">GstMapInfo</a> object, which contains the pointer to the image data.</p>
+<pre class="hljs"><code><div>GstMapInfo info;
+GstBuffer *buffer = gst_sample_get_buffer(sample);
+gst_buffer_map(buffer, &amp;info, GST_MAP_READ);
+</div></code></pre>
+<p>Now all neccessary information for creating the cv::Mat is gathered and the image can be saved in the cv::Mat.</p>
+<pre class="hljs"><code><div>pCustomData-&gt;frame.create(height,width,CV_8UC(<span class="hljs-number">4</span>));
+<span class="hljs-built_in">memcpy</span>( pCustomData-&gt;frame.data, info.data, width*height*<span class="hljs-number">4</span>);
+</div></code></pre>
+<p>cv::Mat::create() wont allocate new memory, if the width, height and bytes per pixels did not change.</p>
+<p>Very important: The references to the GStreamer objects must be cleared afterwards:</p>
+<pre class="hljs"><code><div>gst_buffer_unmap (buffer, &amp;info);
+gst_sample_unref(sample);
+</div></code></pre>
+<h2 id="the-main-program">The Main Program</h2>
+<p>In the main program the neccessary camera properties for trigger mode and software trigger are querried. In the first step, the trigger mode is disabled and the cameras are started. Since we have the code</p>
+<pre class="hljs"><code><div>CustomData1.busy = <span class="hljs-literal">true</span>;
+CustomData2.busy = <span class="hljs-literal">true</span>;
+</div></code></pre>
+<p>the callback function will return without saving images. The cameras are running free now and can be pointed correctly to the scene. The program waits for an Enter-key press. If this key is pressed, the cameras will be set into trigger mode:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// Enable trigger mode</span>
+TriggerMode-&gt;<span class="hljs-built_in">set</span>(cam1,<span class="hljs-number">1</span>);
+TriggerMode-&gt;<span class="hljs-built_in">set</span>(cam2,<span class="hljs-number">1</span>);
+</div></code></pre>
+<p>Now the live stream stops, until trigger pulses, in our case software trigger pulses will be send to the cameras.</p>
+<p>Also the callback function must be advised to save the images:</p>
+<pre class="hljs"><code><div>CustomData1.busy = <span class="hljs-literal">false</span>;
+CustomData2.busy = <span class="hljs-literal">false</span>;
+</div></code></pre>
+<p>For simplyfying the trigger and capture process here, there is a simple loop, that runs some times.
+Before the software triggers are sent, the flag ReceivedAnImage is reset to false.</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// Enable trigger mode</span>
+CustomData1.ReceivedAnImage = <span class="hljs-literal">false</span>;
+CustomData2.ReceivedAnImage = <span class="hljs-literal">false</span>;
+</div></code></pre>
+<p>This flag will be set to true in the callback function after a new image was saved in the cv::Mat of the CustomData structs. Now the software triggers are fired.</p>
+<pre class="hljs"><code><div>Softwaretrigger-&gt;<span class="hljs-built_in">set</span>(cam1,<span class="hljs-number">1</span>);
+Softwaretrigger-&gt;<span class="hljs-built_in">set</span>(cam2,<span class="hljs-number">1</span>);
+</div></code></pre>
+<p>The program waits for the images of both cameras by evaluating the ReceivedAnImage flags:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// Wait with timeout until we got images from both cameras.</span>
+<span class="hljs-keyword">int</span> tries = <span class="hljs-number">50</span>;
+<span class="hljs-keyword">while</span>( !( CustomData1.ReceivedAnImage || CustomData2.ReceivedAnImage) &amp;&amp; tries &gt;= <span class="hljs-number">0</span>)
+{
+    usleep(<span class="hljs-number">100000</span>); 
+    tries--;
+}
+</div></code></pre>
+<p>It is a loop with timeout, because it may happens, we do not get a complete iamges from the camera, which results into frame drops. In case there are too many frames not received, try higher initial values for tries.
+After the timeout loop, it is checked, whether there images from both cameras and the images are processed.</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// If there are images received from both cameras, save them.</span>
+<span class="hljs-keyword">if</span>(CustomData1.ReceivedAnImage &amp;&amp; CustomData1.ReceivedAnImage)
+{
+    SaveImage(&amp;CustomData1);
+    SaveImage(&amp;CustomData2);
+}
+</div></code></pre>
+<p>If both ReceivedAnImage flags are true, an image pair was received. It will be saved then. If not, there is a check, which camera did not send images.</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// Check, from which camera we may did not receive an image. </span>
+<span class="hljs-comment">// It is for convinience only and could be deleted.</span>
+<span class="hljs-keyword">if</span>(!CustomData1.ReceivedAnImage)
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Did not receive an image from camera 1.\n"</span>);
+    
+<span class="hljs-keyword">if</span>(!CustomData2.ReceivedAnImage)
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Did not receive an image from camera 2.\n"</span>);
+</div></code></pre>
+<p>After this saving there is no sleep or other waiting. Therefore, the program captures and saves the images as fast as possible. This speed depends on the camera's frame rate, exposure time and the speed of the computer's hard disc.</p>
+<h2 id="imagesaving">ImageSaving</h2>
+<p>The CustomData1 and CustomData2 structures contain the cv::Mat with the image, so it can be processed when images where received. Here it the cv::Mat is saved:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">////////////////////////////////////////////////////////////////////</span>
+<span class="hljs-comment">// Increase the frame count and save the image in CUSTOMDATA</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">SaveImage</span><span class="hljs-params">(CUSTOMDATA *pCustomData)</span>
+</span>{
+    <span class="hljs-keyword">char</span> ImageFileName[<span class="hljs-number">256</span>];
+    pCustomData-&gt;ImageCounter++;
+
+    <span class="hljs-built_in">sprintf</span>(ImageFileName,<span class="hljs-string">"%s%05d.jpg"</span>, pCustomData-&gt;imageprefix,  pCustomData-&gt;ImageCounter);
+    cv::imwrite(ImageFileName,pCustomData-&gt;frame);
+}
+</div></code></pre>
+<p>The Image file name is created using the data passed by the pCustomData structure. It contains the image prefix, so it is known, which data comes from cam1 and which from cam2. The image counter is increased, so the image pairs can be found in the directory of the jpeg files.</p>
+
+</body>
+</html>
