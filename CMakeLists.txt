@@ -3,7 +3,7 @@ project(tcamstereocapture)
 cmake_minimum_required(VERSION 2.6)
 set(CMAKE_CXX_STANDARD 11)
 
-set( TISCAMERA_DIR /home/stepan/tiscamera) 
+set( TISCAMERA_DIR /home/jetson-nano/tiscamera) 
 
 message( ${TISCAMERA_DIR} )
 

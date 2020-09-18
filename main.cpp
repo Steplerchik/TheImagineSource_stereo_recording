@@ -160,8 +160,8 @@ int main(int argc, char **argv)
     TcamCamera cam2("36710103");    
     
     // Set video format, resolution and frame rate
-    cam1.set_capture_format("BGR", FrameSize{1920,1080}, FrameRate{5,1});
-    cam2.set_capture_format("BGR", FrameSize{1920,1080}, FrameRate{5,1});
+    cam1.set_capture_format("BGR", FrameSize{1920, 1080}, FrameRate{30,1});
+    cam2.set_capture_format("BGR", FrameSize{1920, 1080}, FrameRate{30,1});
 
     //Uncomment following line, if properties shall be listed
     //ListProperties(cam1);
@@ -190,6 +190,73 @@ int main(int argc, char **argv)
         return(2);
     }
 
+    std::shared_ptr<Property> ReverseImageX;
+    try
+    {
+        ReverseImageX = cam1.get_property("Reverse X");
+    }
+    catch(...)
+    {
+        printf("Your camera does not support reversing image X.\n");
+        return(3);
+    }
+
+    std::shared_ptr<Property> ReverseImageY;
+    try
+    {
+        ReverseImageY = cam1.get_property("Reverse Y");
+    }
+    catch(...)
+    {
+        printf("Your camera does not support reversing image Y.\n");
+        return(4);
+    }
+
+    std::shared_ptr<Property> GainAuto;
+    try
+    {
+        GainAuto = cam1.get_property("Gain Auto");
+    }
+    catch(...)
+    {
+        printf("Your camera does not support gain auto.\n");
+        return(5);
+    }
+
+    std::shared_ptr<Property> Gain;
+    try
+    {
+        Gain = cam1.get_property("Gain");
+    }
+    catch(...)
+    {
+        printf("Your camera does not support gain.\n");
+        return(6);
+    }
+
+    std::shared_ptr<Property> ExposureAuto;
+    try
+    {
+        ExposureAuto = cam1.get_property("Exposure Auto");
+    }
+    catch(...)
+    {
+        printf("Your camera does not support exposure auto.\n");
+        return(7);
+    }
+
+    std::shared_ptr<Property> Exposure;
+    try
+    {
+        Exposure = cam1.get_property("Exposure");
+    }
+    catch(...)
+    {
+        printf("Your camera does not support exposure.\n");
+        return(8);
+    }
+
+
     // Comment following line, if no live video display is wanted.
     cam1.enable_video_display(gst_element_factory_make("ximagesink", NULL));
     cam2.enable_video_display(gst_element_factory_make("ximagesink", NULL));
@@ -203,10 +270,30 @@ int main(int argc, char **argv)
     TriggerMode->set(cam1,0); // Use this line for USB cameras
     TriggerMode->set(cam2,0); // Use this line for USB cameras
     
+    // Reversing camera images
+    ReverseImageX->set(cam1,1);
+    ReverseImageX->set(cam2,1);
+    ReverseImageY->set(cam1,1);
+    ReverseImageY->set(cam2,1);
+    
+    // Exposure setup
+    ExposureAuto->set(cam1,0);
+    Exposure->set(cam1,7000);
+    ExposureAuto->set(cam2,0);
+    Exposure->set(cam2,7000);
+
+    // Gain Setup
+    GainAuto->set(cam1,1);
+    Gain->set(cam1,0);
+    GainAuto->set(cam2,1);
+    Gain->set(cam2,0);
+
     // Start the camera
     cam1.start();
     cam2.start();
 
+
+    usleep(5000000);
     waitforkey("Press Enter for start of triggering and image saving.");
 
     // Enable trigger mode
@@ -221,9 +308,12 @@ int main(int argc, char **argv)
     printf("Starting triggers now\n");
 
     // Main loop for software trigger. Image saving is done in the callback.
-    for( int i = 0; i < 50; i++)
+    // for( int i = 0; i < 50; i++)
+    while(true)
     {
-        printf("%d.Trigger \n",i);
+        // printf("%d.Trigger \n",i);
+	printf("Trigger \n");
+	
         CustomData1.ReceivedAnImage = false;
         CustomData2.ReceivedAnImage = false;
 
@@ -257,7 +347,7 @@ int main(int argc, char **argv)
         }
     }
     
-    waitforkey("Press Enter to end the program");
+    // waitforkey("Press Enter to end the program");
 
     CustomData1.busy = true; // deny saving of images 
     CustomData2.busy = true; // deny saving of images 
